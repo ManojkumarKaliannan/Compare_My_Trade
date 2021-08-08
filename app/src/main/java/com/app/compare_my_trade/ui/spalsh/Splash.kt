@@ -40,6 +40,7 @@ class Splash : BaseActivity<ActivitySplashBinding, MotorViewModel>(), BaseNaviga
         val intent = Intent(this, clazz)
         startActivity(intent)
         overridePendingTransition(R.anim.anim_enter, R.anim.anim_exit)
+        finish()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
