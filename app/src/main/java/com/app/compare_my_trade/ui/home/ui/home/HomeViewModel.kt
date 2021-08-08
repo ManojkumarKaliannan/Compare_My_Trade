@@ -1,13 +1,16 @@
 package com.app.compare_my_trade.ui.home.ui.home
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.app.compare_my_trade.R
+import com.app.compare_my_trade.ui.base.BaseNavigator
+import com.app.compare_my_trade.ui.base.BaseViewModel
+import org.koin.core.KoinComponent
 
-class HomeViewModel : ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
+class HomeViewModel(application: Application) : BaseViewModel<BaseNavigator>(application),KoinComponent {
+    val count: Int = 10
+    val listOfCars = arrayOf("Audi - 2020 (Very Good Conditions)", "Hyundai Santro - 2019 Automatic", "BMW - 2020", "Lamborghini Gallardo - 2019 Autom...", "Audi - 2020 (Very Good Conditions)")
+    val homeHeaders = arrayOf(application.resources.getString(R.string.top_recommendation))
 }

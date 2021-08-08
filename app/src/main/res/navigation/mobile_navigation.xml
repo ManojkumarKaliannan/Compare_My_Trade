@@ -9,17 +9,31 @@
         android:id="@+id/navigation_home"
         android:name="com.app.compare_my_trade.ui.home.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_favoriteFragment"
+            app:destination="@id/favoriteFragment"
+            app:popUpTo="@id/navigation_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.app.compare_my_trade.ui.home.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.app.compare_my_trade.ui.home.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.app.compare_my_trade.ui.home.ui.FavoriteFragment"
+        android:label="My Favourites"
+        tools:layout="@layout/fragment_favorite" />
 </navigation>

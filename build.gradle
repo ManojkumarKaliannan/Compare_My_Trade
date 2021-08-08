@@ -53,4 +53,5 @@ ext {
     shimmer='0.5.0'
     appache_common='1.3.2'
     lifecycle_version = "2.4.0-alpha02"
+    recycler_view_version = '1.2.1'
 }

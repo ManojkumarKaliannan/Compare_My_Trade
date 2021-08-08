@@ -15,23 +15,26 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.google.android.material.appbar.AppBarLayout
+<!--            <com.google.android.material.appbar.AppBarLayout-->
+<!--                android:id="@+id/appbar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                android:animateLayoutChanges="true"-->
+<!--                tools:ignore="MissingConstraints">-->
+
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/appbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="?attr/actionBarSize"
                 android:animateLayoutChanges="true"
-                tools:ignore="MissingConstraints">
-
-                <com.google.android.material.appbar.MaterialToolbar
-                    android:id="@+id/toolbar"
-                    style="@style/Widget.MaterialComponents.Toolbar.Primary"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:animateLayoutChanges="true"
-                    android:elevation="0dp"
-                    app:contentInsetStartWithNavigation="0dp"
-                    app:layout_scrollFlags="scroll|enterAlways" />
-            </com.google.android.material.appbar.AppBarLayout>
+                android:background="@android:color/transparent"
+                app:contentInsetStartWithNavigation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_scrollFlags="scroll|enterAlways" />
+<!--            </com.google.android.material.appbar.AppBarLayout>-->
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

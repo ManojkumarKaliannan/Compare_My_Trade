@@ -12,4 +12,7 @@
     <color name="bottomNavColor">#FFFFFF</color>
     <color name="bottomNavSelectedColor">#1763EA</color>
     <color name="colorAccent">#909CAE</color>
+    <color name="colorCardFeaturedText">#00B99F</color>
+    <color name="colorItemListDetails">#9DA0A5</color>
+    <color name="colorItemColor">#1763EA</color>
 </resources>

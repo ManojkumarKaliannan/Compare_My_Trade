@@ -16,18 +16,18 @@
             android:name=".ui.home.HomeActivity"
             android:theme="@style/Theme.Compare_My_Trade.NoActionBar"
             android:label="@string/title_activity_home">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ui.spalsh.LoginScreen"
             android:label="@string/title_activity_login_screen"
             android:theme="@style/Theme.Compare_My_Trade.NoActionBar" />
         <activity android:name=".ui.spalsh.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
