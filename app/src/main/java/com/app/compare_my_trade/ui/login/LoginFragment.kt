@@ -36,6 +36,9 @@ class LoginFragment : Fragment() {
         binding.resetTv.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
+        binding.createTv.setOnClickListener {
+            findNavController().navigate(R.id.action_loginfragment_to_createAccountFragment)
+        }
     }
 
     override fun onDestroyView() {

@@ -17,6 +17,7 @@
         <action
             android:id="@+id/action_loginfragment_to_createAccountFragment"
             app:destination="@id/createAccountFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/forgotpasswordfragment"
@@ -33,7 +34,7 @@
     <fragment
         android:id="@+id/newPasswordFragment"
         android:name="com.app.compare_my_trade.ui.login.NewPasswordFragment"
-        android:label="NewPasswordFragment"
+        android:label="Create New Password"
         tools:layout="@layout/fragment_new_password"
         >
         <action
@@ -43,7 +44,7 @@
     <fragment
         android:id="@+id/createAccountFragment"
         android:name="com.app.compare_my_trade.ui.login.CreateAccountFragment"
-        android:label="CreateAccountFragment"
+        android:label="Create Account"
         tools:layout="@layout/fragment_create_account"
         >
         <action
