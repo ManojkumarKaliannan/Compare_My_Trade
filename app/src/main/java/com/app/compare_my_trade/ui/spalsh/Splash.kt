@@ -14,7 +14,6 @@ import com.app.compare_my_trade.ui.base.BaseNavigator
 import com.app.compare_my_trade.ui.login.LoginControlActivity
 import com.github.ybq.android.spinkit.sprite.Sprite
 import com.github.ybq.android.spinkit.style.Circle
-import com.github.ybq.android.spinkit.style.DoubleBounce
 import kotlinx.android.synthetic.main.activity_splash.*
 import org.koin.android.ext.android.inject
 
