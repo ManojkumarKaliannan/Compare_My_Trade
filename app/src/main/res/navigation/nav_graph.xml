@@ -3,26 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/loginfragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.app.compare_my_trade.ui.spalsh.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/loginfragment"
+        android:name="com.app.compare_my_trade.ui.login.LoginFragment"
+        android:label=""
+        tools:layout="@layout/fragment_login">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/forgotpasswordfragment" />
+        <action
+            android:id="@+id/action_loginfragment_to_createAccountFragment"
+            app:destination="@id/createAccountFragment" />
+
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.app.compare_my_trade.ui.spalsh.SecondFragment"
+        android:id="@+id/forgotpasswordfragment"
+        android:name="com.app.compare_my_trade.ui.login.ForgotPasswordFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        tools:layout="@layout/fragment_forgot_password">
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_forgotpasswordfragment_to_newPasswordFragment"
+            app:destination="@id/newPasswordFragment" />
+        <action
+            android:id="@+id/action_forgotpasswordfragment_to_createAccountFragment"
+            app:destination="@id/createAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newPasswordFragment"
+        android:name="com.app.compare_my_trade.ui.login.NewPasswordFragment"
+        android:label="Create New Password"
+        tools:layout="@layout/fragment_new_password"
+        >
+        <action
+            android:id="@+id/action_newPasswordFragment_to_loginfragment"
+            app:destination="@id/loginfragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="com.app.compare_my_trade.ui.login.CreateAccountFragment"
+        android:label="Create Account"
+        tools:layout="@layout/fragment_create_account"
+        >
+        <action
+            android:id="@+id/action_createAccountFragment_to_loginfragment"
+            app:destination="@id/loginfragment" />
     </fragment>
 </navigation>

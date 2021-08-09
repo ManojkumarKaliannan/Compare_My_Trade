@@ -11,10 +11,9 @@ import com.app.compare_my_trade.databinding.ActivitySplashBinding
 import com.app.compare_my_trade.ui.MotorViewModel
 import com.app.compare_my_trade.ui.base.BaseActivity
 import com.app.compare_my_trade.ui.base.BaseNavigator
-import com.app.compare_my_trade.ui.home.HomeActivity
+import com.app.compare_my_trade.ui.login.LoginControlActivity
 import com.github.ybq.android.spinkit.sprite.Sprite
 import com.github.ybq.android.spinkit.style.Circle
-import com.github.ybq.android.spinkit.style.DoubleBounce
 import kotlinx.android.synthetic.main.activity_splash.*
 import org.koin.android.ext.android.inject
 
@@ -40,6 +39,7 @@ class Splash : BaseActivity<ActivitySplashBinding, MotorViewModel>(), BaseNaviga
         val intent = Intent(this, clazz)
         startActivity(intent)
         overridePendingTransition(R.anim.anim_enter, R.anim.anim_exit)
+        finish()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +47,7 @@ class Splash : BaseActivity<ActivitySplashBinding, MotorViewModel>(), BaseNaviga
         val doubleBounce: Sprite = Circle()
         spin_kit.setIndeterminateDrawable(doubleBounce)
         Handler(Looper.getMainLooper()).postDelayed({
-            goTo(HomeActivity::class.java,null)
+            goTo(LoginControlActivity::class.java,null)
         }, 2000)
     }
 
