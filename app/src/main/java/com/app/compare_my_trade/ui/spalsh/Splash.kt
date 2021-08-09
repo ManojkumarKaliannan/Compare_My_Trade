@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
-import com.app.compare_my_trade.BR
 import com.app.compare_my_trade.R
+import com.app.compare_my_trade.BR
 import com.app.compare_my_trade.databinding.ActivitySplashBinding
 import com.app.compare_my_trade.ui.MotorViewModel
 import com.app.compare_my_trade.ui.base.BaseActivity

@@ -1,11 +1,31 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Compare_My_Trade" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.Compare_My_Trade" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryDark">@color/purple_700</item>
-        <item name="colorAccent">@color/teal_200</item>
+        <item name="colorPrimary">#00000000</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="OutlinedRoundedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MyApp.TextInputLayout.Rounded</item>
+    </style>
+
+    <style name="rounded_corner">
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MyApp.TextInputLayout.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">5dp</item>
+    </style>
+
+    <style name="TextInputLayoutNoBorder" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+<!--        <item name="errorIconDrawable">@null</item>-->
+<!--        <item name="errorIconTint">@null</item>-->
+        <item name="hintEnabled">false</item>
+        <item name="boxBackgroundMode">none</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
@@ -20,7 +40,13 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
+    <style name="Theme.Compare_My_Trade.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="ShapeAppearanceOverlay.App.CornerSize10Percent" parent="">
+        <item name="cornerSize">10%</item>
+    </style>
     <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

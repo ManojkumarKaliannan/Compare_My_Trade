@@ -13,6 +13,7 @@ object Singleton {
     var StatusCode: String = ""
     var mImdb:String=""
     var BaseImageUrl="https://image.tmdb.org/t/p/w185/"
+    var connectionCheck:Boolean=false
 
     @BindingAdapter("imageUrls")
     @JvmStatic

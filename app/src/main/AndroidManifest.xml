@@ -22,6 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:theme="@style/Theme.Compare_My_Trade.NoActionBar"
+            android:label="@string/title_activity_home">
+        </activity>
     </application>
 
 </manifest>
