@@ -32,6 +32,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="fontFamily">@font/mulish_regular</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
     <style name="DrawerIconStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="color">#31322D</item>
