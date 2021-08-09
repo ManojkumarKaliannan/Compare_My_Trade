@@ -1,10 +1,13 @@
 package com.app.compare_my_trade.ui.home.ui.home
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.GridView
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.GridLayoutManager
@@ -34,6 +37,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), INetwor
     // onDestroyView.
     lateinit var gridView: GridView
     private var types = arrayOf("Model", "Make", "Series", "Badge", "Test2")
+    private val favouritesAnimation by lazy {
+        AnimationUtils.loadAnimation(
+            context,
+            R.anim.overshoot_anim
+        )
+    }
 
 
     override fun onCreateView(
@@ -66,6 +75,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), INetwor
             null,
             object : OnDataBindCallback<BuyerItemBinding> {
                 override fun onItemClick(view: View, position: Int, v: BuyerItemBinding) {
+                    if (view == v.clFavorite) {
+                        if(v.sivFavorite.background == ContextCompat.getDrawable(view.context, R.drawable.ic_favorite_not_selected)){
+                            v.sivFavorite.background = ContextCompat.getDrawable(view.context, R.drawable.ic_favorite_selected)
+                        }else{
+                            v.sivFavorite.background = ContextCompat.getDrawable(view.context, R.drawable.ic_favorite_not_selected)
+                        }
+                        view.startAnimation(favouritesAnimation)
+                    } else {
+                    }
                 }
 
                 override fun onDataBind(
@@ -73,6 +91,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), INetwor
                     onClickListener: View.OnClickListener
                 ) {
 //                    val mainAdapter = context?.let { MainAdapter(it, types) }
+                    v.clFavorite.setOnClickListener {  }
                     v.rvTypeLists.setHasFixedSize(true)
                     var manager = GridLayoutManager(
                         v.rvTypeLists.context,
