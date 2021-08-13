@@ -29,7 +29,9 @@
             app:destination="@id/newPasswordFragment" />
         <action
             android:id="@+id/action_forgotpasswordfragment_to_createAccountFragment"
-            app:destination="@id/createAccountFragment" />
+            app:destination="@id/createAccountFragment"
+            app:popUpToInclusive="true"
+            />
     </fragment>
     <fragment
         android:id="@+id/newPasswordFragment"
