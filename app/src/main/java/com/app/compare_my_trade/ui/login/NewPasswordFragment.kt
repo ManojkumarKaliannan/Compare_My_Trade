@@ -3,6 +3,7 @@ package com.app.compare_my_trade.ui.login
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.app.compare_my_trade.BR
 import com.app.compare_my_trade.R
 import com.app.compare_my_trade.databinding.FragmentNewPasswordBinding
@@ -24,8 +25,8 @@ class NewPasswordFragment : BaseFragment<FragmentNewPasswordBinding, MotorViewMo
             it.toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
         }
         viewDataBinding?.let {
-            it.loginBtn.setOnClickListener {
-            // findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            it.updateBtn.setOnClickListener {
+             findNavController().navigate(R.id.action_newPasswordFragment_to_loginfragment)
         }
         }
     }
