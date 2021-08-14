@@ -3,6 +3,8 @@ package com.app.compare_my_trade.utills
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
+import android.util.Patterns
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.app.compare_my_trade.R
@@ -35,6 +37,12 @@ object Singleton {
         intent.putExtras(mExtras)
         context.startActivity(intent)
     }
+
+    fun isValidEmail(target: CharSequence?): Boolean {
+        return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches()
+    }
+
+
 
 
 }
