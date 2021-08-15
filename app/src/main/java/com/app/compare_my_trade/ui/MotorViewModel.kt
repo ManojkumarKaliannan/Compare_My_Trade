@@ -21,4 +21,6 @@ class MotorViewModel(application: Application) : BaseViewModel<BaseNavigator>(ap
         getNavigator().onClickView(view)
     }
 
+
+
 }

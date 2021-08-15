@@ -5,6 +5,9 @@ import com.app.compare_my_trade.network.model.BaseResponse
 import com.app.compare_my_trade.network.model.Resource
 import com.app.compare_my_trade.utills.Singleton
 import com.app.compare_my_trade.utills.Singleton.StatusCode
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import org.json.JSONException
 import org.json.JSONObject
@@ -20,14 +23,12 @@ open class BaseRepository{
     fun <T> getCallback(responseData: MutableLiveData<Resource<BaseResponse<T>>>): Callback<BaseResponse<T>> {
         return object : Callback<BaseResponse<T>> {
             override fun onFailure(call: Call<BaseResponse<T>>, t: Throwable) {
-                Singleton.StatusCode=""
                 if (t is IOException)
                     responseData.value = Resource.failure("Server time out", null)
                 else
                     responseData.value = Resource.failure(t.message!!, null)
             }
             override fun onResponse(call: Call<BaseResponse<T>>, response: Response<BaseResponse<T>>) {
-                Singleton.StatusCode=""
                 if (response.isSuccessful && response.body() != null) {
                     responseData.value = Resource.success(response.body()!!)
                 } else {
@@ -78,5 +79,7 @@ open class BaseRepository{
         return truckErrorResponse
     }
 
-
+    fun createPlainTextRequestBody(data: String?): RequestBody {
+        return RequestBody.create("text/plain".toMediaTypeOrNull(), data ?: "")
+    }
 }

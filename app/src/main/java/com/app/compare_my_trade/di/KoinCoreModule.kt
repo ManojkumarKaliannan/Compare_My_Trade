@@ -3,7 +3,8 @@ package com.app.compare_my_trade.di
 import com.app.compare_my_trade.data.local.SharedPreferenceImp
 import com.app.compare_my_trade.network.clientbuilder.ApiInterceptor
 import com.app.compare_my_trade.network.clientbuilder.MotorClientBuilder
-import com.app.compare_my_trade.repo.MotorAppRepoList
+import com.app.compare_my_trade.repo.AllMotorAPIRepo
+import com.app.compare_my_trade.repo.beforelogin.BeforeLoginRepoList
 import com.app.compare_my_trade.ui.MotorViewModel
 import com.app.compare_my_trade.ui.home.ui.home.HomeViewModel
 import org.koin.androidx.experimental.dsl.viewModel
@@ -17,7 +18,7 @@ class KoinCoreModule {
         viewModel<HomeViewModel>()
         single<ApiInterceptor>()
         single<MotorClientBuilder>()
-        single<MotorAppRepoList>()
-
+        single<AllMotorAPIRepo>()
+        single<BeforeLoginRepoList>()
 }
 }
