@@ -103,4 +103,7 @@ dependencies {
     //shimmer
     implementation "com.facebook.shimmer:shimmer:$shimmer"
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    //third party slide and option show library
+    implementation "com.ernestoyaquello.dragdropswiperecyclerview:drag-drop-swipe-recyclerview:$dAndDRecyclerView"
 }

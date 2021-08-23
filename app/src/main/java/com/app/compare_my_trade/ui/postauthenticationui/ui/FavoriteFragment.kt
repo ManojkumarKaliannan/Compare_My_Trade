@@ -1,4 +1,4 @@
-package com.app.compare_my_trade.ui.home.ui
+package com.app.compare_my_trade.ui.postauthenticationui.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

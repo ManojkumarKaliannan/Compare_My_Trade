@@ -7,14 +7,14 @@
 
         <variable
             name="homeViewModel"
-            type="com.app.compare_my_trade.ui.home.ui.home.HomeViewModel" />
+            type="com.app.compare_my_trade.ui.postauthenticationui.ui.home.HomeViewModel" />
     </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.home.ui.home.HomeFragment">
+        tools:context=".ui.postauthenticationui.ui.home.HomeFragment">
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -35,8 +35,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="17dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/siv_profile">
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/tiet_search"
@@ -97,6 +98,18 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/siv_filter"
             app:layout_constraintTop_toTopOf="@+id/siv_filter" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/siv_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/rounded_corner"
+            android:background="@mipmap/profile_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

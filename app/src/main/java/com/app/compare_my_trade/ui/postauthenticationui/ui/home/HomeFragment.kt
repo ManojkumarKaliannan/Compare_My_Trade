@@ -1,6 +1,5 @@
-package com.app.compare_my_trade.ui.home.ui.home
+package com.app.compare_my_trade.ui.postauthenticationui.ui.home
 
-import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.compare_my_trade.BR
 import com.app.compare_my_trade.R
 import com.app.compare_my_trade.adapter.BaseRecyclerViewAdapter
-import com.app.compare_my_trade.adapter.MainAdapter
 import com.app.compare_my_trade.adapter.OnDataBindCallback
 import com.app.compare_my_trade.adapter.decoration.MarginItemDecoration
 import com.app.compare_my_trade.adapter.decoration.MarginSideItemDecoration

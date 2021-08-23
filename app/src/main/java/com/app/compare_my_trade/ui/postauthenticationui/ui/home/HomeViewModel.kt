@@ -1,9 +1,6 @@
-package com.app.compare_my_trade.ui.home.ui.home
+package com.app.compare_my_trade.ui.postauthenticationui.ui.home
 
 import android.app.Application
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.app.compare_my_trade.R
 import com.app.compare_my_trade.ui.base.BaseNavigator
 import com.app.compare_my_trade.ui.base.BaseViewModel

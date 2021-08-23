@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.home.HomeActivity"
+            android:name=".ui.postauthenticationui.HomeActivity"
             android:theme="@style/Theme.Compare_My_Trade.NoActionBar"
             android:label="@string/title_activity_home">
         </activity>

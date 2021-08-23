@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.app.compare_my_trade.ui.home.ui.home.HomeFragment"
+        android:name="com.app.compare_my_trade.ui.postauthenticationui.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -17,10 +17,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.app.compare_my_trade.ui.home.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" >
+        android:id="@+id/navigation_manage_bids"
+        android:name="com.app.compare_my_trade.ui.postauthenticationui.ui.managebids.ManageBidsFragment"
+        android:label="@string/title_manage_bids"
+        tools:layout="@layout/fragment_manage_bids" >
         <action
             android:id="@+id/action_navigation_dashboard_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
@@ -28,12 +28,17 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.app.compare_my_trade.ui.home.ui.notifications.NotificationsFragment"
+        android:name="com.app.compare_my_trade.ui.postauthenticationui.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.app.compare_my_trade.ui.home.ui.FavoriteFragment"
+        android:name="com.app.compare_my_trade.ui.postauthenticationui.ui.FavoriteFragment"
         android:label="My Favourites"
         tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/navigation_more"
+        android:name="com.app.compare_my_trade.ui.postauthenticationui.ui.moreoptions.MoreOptionsFragment"
+        android:label="@string/title_more_option"
+        tools:layout="@layout/fragment_more_options" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.app.compare_my_trade.ui.home
+package com.app.compare_my_trade.ui.postauthenticationui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -20,7 +20,7 @@ class HomeActivity : AppCompatActivity() {
     private val     appBarConfiguration by lazy {
          AppBarConfiguration(
              setOf(
-                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                 R.id.navigation_home, R.id.navigation_manage_bids, R.id.navigation_notifications, R.id.navigation_more
              )
          )
      }

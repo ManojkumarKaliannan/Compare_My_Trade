@@ -1,4 +1,4 @@
-package com.app.compare_my_trade.ui.home.ui.notifications
+package com.app.compare_my_trade.ui.postauthenticationui.ui.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

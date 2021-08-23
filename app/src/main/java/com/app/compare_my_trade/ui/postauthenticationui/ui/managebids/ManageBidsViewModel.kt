@@ -1,10 +1,10 @@
-package com.app.compare_my_trade.ui.home.ui.dashboard
+package com.app.compare_my_trade.ui.postauthenticationui.ui.managebids
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class ManageBidsViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is dashboard Fragment"

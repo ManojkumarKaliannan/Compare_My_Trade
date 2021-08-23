@@ -15,4 +15,7 @@
     <color name="colorCardFeaturedText">#00B99F</color>
     <color name="colorItemListDetails">#9DA0A5</color>
     <color name="colorItemColor">#1763EA</color>
+    <color name="colorToolbarTitle">#FF000000</color>
+    <color name="colorBottomNavItemNotSelected">#909CAE</color>
+    <color name="colorMBBidPriceLabel">#A5A6A8</color>
 </resources>

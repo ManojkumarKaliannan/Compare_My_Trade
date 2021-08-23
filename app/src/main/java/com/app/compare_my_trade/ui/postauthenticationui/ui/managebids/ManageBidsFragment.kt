@@ -1,19 +1,17 @@
-package com.app.compare_my_trade.ui.home.ui.dashboard
+package com.app.compare_my_trade.ui.postauthenticationui.ui.managebids
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.app.compare_my_trade.databinding.FragmentDashboardBinding
+import com.app.compare_my_trade.databinding.FragmentManageBidsBinding
 
-class DashboardFragment : Fragment() {
+class ManageBidsFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
-    private var _binding: FragmentDashboardBinding? = null
+    private lateinit var manageBidsViewModel: ManageBidsViewModel
+    private var _binding: FragmentManageBidsBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,10 +22,10 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        manageBidsViewModel =
+            ViewModelProvider(this).get(ManageBidsViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentManageBidsBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
     }

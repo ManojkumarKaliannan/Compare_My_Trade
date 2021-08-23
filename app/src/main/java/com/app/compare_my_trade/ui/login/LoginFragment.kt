@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.app.compare_my_trade.R
 import com.app.compare_my_trade.databinding.FragmentLoginBinding
-import com.app.compare_my_trade.ui.home.HomeActivity
+import com.app.compare_my_trade.ui.postauthenticationui.HomeActivity
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
