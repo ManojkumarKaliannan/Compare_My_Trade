@@ -7,48 +7,57 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.app.compare_my_trade.BR
 import com.app.compare_my_trade.R
 import com.app.compare_my_trade.databinding.FragmentLoginBinding
-import com.app.compare_my_trade.ui.postauthenticationui.HomeActivity
+import com.app.compare_my_trade.ui.MotorViewModel
+import com.app.compare_my_trade.ui.base.BaseFragment
+import com.app.compare_my_trade.ui.base.BaseNavigator
+import com.app.compare_my_trade.ui.home.HomeActivity
+import com.app.compare_my_trade.utills.Singleton.isValidEmail
+import org.koin.android.ext.android.inject
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment<FragmentLoginBinding,MotorViewModel>(), BaseNavigator {
 
-    private var _binding: FragmentLoginBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
-        return binding.root
-
-    }
+    private  val motorViewModel: MotorViewModel by inject()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.setNavigator(this)
+    }
 
-        binding.resetTv.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
-        binding.createTv.setOnClickListener {
-            findNavController().navigate(R.id.action_loginfragment_to_createAccountFragment)
-        }
-        binding.loginBtn.setOnClickListener {
-            val intent = Intent (activity, HomeActivity::class.java)
-            startActivity(intent)
+    override val bindingVariable: Int
+        get() = BR.motorVM
+    override val layoutId: Int
+        get() = R.layout.fragment_login
+    override val viewModel: MotorViewModel
+        get() = motorViewModel
+
+    override fun onClickView(v: View?) {
+        when(v?.id){
+            R.id.reset_tv->{
+                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            }
+            R.id.create_tv->{
+                findNavController().navigate(R.id.action_loginfragment_to_createAccountFragment)
+            }
+            R.id.login_btn->{
+                 if(!isValidEmail(motorViewModel.username.get())){
+                     putToast("Enter Valid Email id")
+                 }else if(motorViewModel.password.get()==null){
+                     putToast("Enter your password")
+                 }else{
+                    goTo(HomeActivity::class.java,null)
+                 }
+
+            }
+
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun goTo(clazz: Class<*>, mExtras: Bundle?) {
+        val intent = Intent(activity, clazz)
+        startActivity(intent)
+
     }
 }

@@ -25,4 +25,49 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="under_development">This page is under development</string>
     <string name="top_recommendation">Top Recommendation</string>
+
+    <string name="welcome">Welcome Back to</string>
+    <string name="compare">Compare My Trade</string>
+    <string name="login_to_continue">Login to continue using your account</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot">Forgot Password?</string>
+    <string name="reset">Reset</string>
+    <string name="login">Login</string>
+    <string name="login_with">Or Login With</string>
+    <string name="have_account">Don’t have an Account?</string>
+    <string name="create_account">Create Account</string>
+
+    <string name="forgot_pass">Enter your email associated with your account and we’ll send a link for your Reset password.</string>
+    <string name="submit">Submit</string>
+
+    <string name ="new_password">Your new password must be different from\nprevious used passwords.</string>
+    <string name="confirm_password">Confirm Password</string>
+
+    <string name="update_password">UPDATE PASSWORD</string>
+
+    <string name="create_own_account">Create your own account to explore the Cars and Buy your Dream one!</string>
+    <string name="login_now">Login Now</string>
+
+    <string name="full_name">Full Name</string>
+    <string name="business_name">Business Name</string>
+    <string name="business_email">Business Email</string>
+    <string name="business_phone">Business Phone</string>
+    <string name="business_registration">Business Registration Document</string>
+    <string name="upload_file">Upload File</string>
+    <string name="abn">ABN</string>
+    <string name="post_code">Post Code</string>
+    <string name="set_password">Set Password</string>
+    <string name="continuee">Continue</string>
+
+
+
+
+
+
+
+
+
+
+
 </resources>

@@ -120,19 +120,19 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : android
     inner class NetworkChangeReceiver : BroadcastReceiver() {
 
         override fun onReceive(context: Context, intent: Intent) {
-            showNetworkError()
+            //showNetworkError()
         }
     }
 
     override fun onPause() {
         super.onPause()
-        unregisterReceiver(networkChangeReceiver)
+       // unregisterReceiver(networkChangeReceiver)
     }
 
     override fun onResume() {
         super.onResume()
-        networkChangeReceiver = NetworkChangeReceiver()
-        registerReceiver(networkChangeReceiver, IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"))
+       // networkChangeReceiver = NetworkChangeReceiver()
+       // registerReceiver(networkChangeReceiver, IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"))
     }
 
 

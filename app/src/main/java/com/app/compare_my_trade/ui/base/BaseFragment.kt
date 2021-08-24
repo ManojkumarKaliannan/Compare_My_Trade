@@ -118,19 +118,19 @@ abstract class BaseFragment<T : ViewDataBinding, out V : BaseViewModel<*>> : Fra
 
     override fun onResume() {
         super.onResume()
-        connectivityReceiverListener = this as INetworkConnection
-        networkChangeReceiver = NetworkChangeReceiver(connectivityReceiverListener)
-        activity?.registerReceiver(
-            networkChangeReceiver,
-            IntentFilter("android.net.conn.CONNECTIVITY_CHANGE")
-        )
+//        connectivityReceiverListener = this as INetworkConnection
+//        networkChangeReceiver = NetworkChangeReceiver(connectivityReceiverListener)
+//        activity?.registerReceiver(
+//            networkChangeReceiver,
+//            IntentFilter("android.net.conn.CONNECTIVITY_CHANGE")
+//        )
 
         Log.d(this.tag,"Resume")
     }
 
     override fun onPause() {
         super.onPause()
-        activity?.unregisterReceiver(networkChangeReceiver)
+        //activity?.unregisterReceiver(networkChangeReceiver)
     }
 
 
