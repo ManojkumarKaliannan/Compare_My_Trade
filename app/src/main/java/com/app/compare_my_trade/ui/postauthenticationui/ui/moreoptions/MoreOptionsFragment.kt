@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.app.compare_my_trade.BR
 import com.app.compare_my_trade.R
@@ -27,11 +28,7 @@ class MoreOptionsFragment : BaseFragment<FragmentMoreOptionsBinding, MoreOptions
     INetworkConnection {
 
     private val moreOptionsViewModel: MoreOptionsViewModel by inject()
-    private var _binding: FragmentMoreOptionsBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -60,7 +57,13 @@ class MoreOptionsFragment : BaseFragment<FragmentMoreOptionsBinding, MoreOptions
             null,
             object : OnDataBindCallback<ItemMoreBinding> {
                 override fun onItemClick(view: View, position: Int, v: ItemMoreBinding) {
-                    toastUnderDevelopment()
+                    when(v.moreItem?.name){
+                        viewModel.menuItems[0].name -> {
+                            findNavController().navigate(R.id.action_navigation_more_to_aboutFragment)
+                        }
+                        else -> toastUnderDevelopment()
+                    }
+
                 }
 
                 override fun onDataBind(v: ItemMoreBinding, onClickListener: View.OnClickListener) {
@@ -89,10 +92,6 @@ class MoreOptionsFragment : BaseFragment<FragmentMoreOptionsBinding, MoreOptions
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 
     override val bindingVariable: Int
         get() = BR.moreOptionsViewModel

@@ -103,7 +103,7 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : android
 
 
     fun showAlert(){
-        AlertDialog.Builder(getApplication())
+        AlertDialog.Builder(application)
             .setIcon(android.R.drawable.ic_dialog_alert)
             .setTitle("App Exit")
             .setMessage("Are you sure you want to Exit?")
@@ -114,7 +114,7 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : android
 
     override fun onBackPressed() {
         super.onBackPressed()
-        overridePendingTransition(R.anim.anim_pop_enter, R.anim.anim_pop_exit)
+//        overridePendingTransition(R.anim.anim_pop_enter, R.anim.anim_pop_exit)
     }
 
     inner class NetworkChangeReceiver : BroadcastReceiver() {

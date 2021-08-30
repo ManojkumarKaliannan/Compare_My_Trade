@@ -21,6 +21,7 @@
     <color name="colorProfileTextColor">#222325</color>
     <color name="colorMoreOptionsHeader">#2E3032</color>
     <color name="colorMoreItemText">#36342F</color>
+    <color name="colorAboutUsTitle">#141413</color>
 
     <color name="welcome_gray">#818478</color>
     <color name="compare_gray">#31322D</color>
