@@ -24,6 +24,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="under_development">This page is under development</string>
+    <string name="change_password">Change Password</string>
     <string name="top_recommendation">Top Recommendation</string>
 
     <string name="welcome">Welcome Back to</string>
@@ -37,6 +38,9 @@
     <string name="login_with">Or Login With</string>
     <string name="have_account">Don’t have an Account?</string>
     <string name="create_account">Create Account</string>
+    <string name="test_name">George Bailey</string>
+    <string name="test_mail">georgebailey123@gmail.com</string>
+    <string name="miscellaneous">Miscellaneous</string>
 
     <string name="forgot_pass">Enter your email associated with your account and we’ll send a link for your Reset password.</string>
     <string name="submit">Submit</string>

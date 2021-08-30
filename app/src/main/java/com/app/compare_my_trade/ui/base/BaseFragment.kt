@@ -133,6 +133,10 @@ abstract class BaseFragment<T : ViewDataBinding, out V : BaseViewModel<*>> : Fra
         //activity?.unregisterReceiver(networkChangeReceiver)
     }
 
+    fun toastUnderDevelopment(){
+        Toast.makeText(context, "Page Under Development", Toast.LENGTH_SHORT).show()
+    }
+
 
     /**
      * common toast show for all screens

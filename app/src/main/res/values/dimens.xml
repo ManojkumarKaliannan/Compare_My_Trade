@@ -10,4 +10,6 @@
     <dimen name="text11sp">11sp</dimen>
     <dimen name="text12sp">12sp</dimen>
     <dimen name="text14sp">14sp</dimen>
+    <dimen name="text16sp">16sp</dimen>
+    <dimen name="moreItemsPadding">13dp</dimen>
 </resources>

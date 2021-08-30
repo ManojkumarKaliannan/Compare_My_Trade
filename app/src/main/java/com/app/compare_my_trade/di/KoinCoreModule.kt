@@ -7,6 +7,7 @@ import com.app.compare_my_trade.repo.AllMotorAPIRepo
 import com.app.compare_my_trade.repo.beforelogin.BeforeLoginRepoList
 import com.app.compare_my_trade.ui.MotorViewModel
 import com.app.compare_my_trade.ui.postauthenticationui.ui.home.HomeViewModel
+import com.app.compare_my_trade.ui.postauthenticationui.ui.moreoptions.MoreOptionsViewModel
 import org.koin.androidx.experimental.dsl.viewModel
 import org.koin.dsl.module
 import org.koin.experimental.builder.single
@@ -16,6 +17,7 @@ class KoinCoreModule {
         single<SharedPreferenceImp>()
         viewModel<MotorViewModel>()
         viewModel<HomeViewModel>()
+        viewModel<MoreOptionsViewModel>()
         single<ApiInterceptor>()
         single<MotorClientBuilder>()
         single<AllMotorAPIRepo>()

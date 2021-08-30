@@ -13,7 +13,7 @@ import com.app.compare_my_trade.databinding.FragmentLoginBinding
 import com.app.compare_my_trade.ui.MotorViewModel
 import com.app.compare_my_trade.ui.base.BaseFragment
 import com.app.compare_my_trade.ui.base.BaseNavigator
-import com.app.compare_my_trade.ui.home.HomeActivity
+import com.app.compare_my_trade.ui.postauthenticationui.HomeActivity
 import com.app.compare_my_trade.utills.Singleton.isValidEmail
 import org.koin.android.ext.android.inject
 

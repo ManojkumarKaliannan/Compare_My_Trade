@@ -18,6 +18,9 @@
     <color name="colorToolbarTitle">#FF000000</color>
     <color name="colorBottomNavItemNotSelected">#909CAE</color>
     <color name="colorMBBidPriceLabel">#A5A6A8</color>
+    <color name="colorProfileTextColor">#222325</color>
+    <color name="colorMoreOptionsHeader">#2E3032</color>
+    <color name="colorMoreItemText">#36342F</color>
 
     <color name="welcome_gray">#818478</color>
     <color name="compare_gray">#31322D</color>
