@@ -12,7 +12,7 @@ class BaseViewHolder<V : ViewDataBinding>(val viewDataBinding: V,
     }
 
     override fun onClick(view: View) {
-        onDataBindCallback.onItemClick(view, adapterPosition,viewDataBinding)
+        onDataBindCallback.onItemClick(view, bindingAdapterPosition,viewDataBinding)
     }
 
 }

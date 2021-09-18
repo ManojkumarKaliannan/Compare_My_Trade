@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.login.LoginControlActivity">
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="motorVM"
+            type="com.app.compare_my_trade.ui.MotorViewModel" />
+        <import type="android.view.View" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.login.LoginControlActivity">
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/welcome_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mulish_regular"
-            android:text="Create your own account to explore the Cars and
-Buy your Dream one!"
+            android:text="@string/create_own_account"
             android:textAlignment="textStart"
             android:textColor="#797A73"
             android:textSize="14sp"
@@ -21,17 +29,20 @@ Buy your Dream one!"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_bottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.60" />
+
         <androidx.core.widget.NestedScrollView
             android:id="@+id/scroll"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="15dp"
+            android:scrollbars="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/gl_bottom"
             app:layout_constraintTop_toBottomOf="@+id/welcome_tv">
 
@@ -68,9 +79,9 @@ Buy your Dream one!"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="5dp"
-                        android:hint="Full Name"
-                        android:textColorHint="#31322D"
-                        app:hintTextColor="#31322D"
+                        android:hint="@string/first_name"
+                        android:textColorHint="@color/compare_gray"
+                        app:hintTextColor="@color/edit"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/img_email"
@@ -81,9 +92,10 @@ Buy your Dream one!"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
                             android:background="@null"
+                            android:text="@={motorVM.firstName}"
                             android:fontFamily="@font/mulish_regular"
                             android:singleLine="true"
-                            android:textColor="#8F9187"
+                            android:textColor="@color/edit"
                             android:textSize="15sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,7 +118,7 @@ Buy your Dream one!"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
-                        android:src="@drawable/ic_suitcase"
+                        android:src="@drawable/ic_user"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -117,9 +129,9 @@ Buy your Dream one!"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="5dp"
-                        android:hint="Business Name"
-                        android:textColorHint="#31322D"
-                        app:hintTextColor="#31322D"
+                        android:hint="@string/last_name"
+                        android:textColorHint="@color/compare_gray"
+                        app:hintTextColor="@color/edit"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/img_business"
@@ -130,9 +142,10 @@ Buy your Dream one!"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
                             android:background="@null"
+                            android:text="@={motorVM.lastName}"
                             android:fontFamily="@font/mulish_regular"
                             android:singleLine="true"
-                            android:textColor="#8F9187"
+                            android:textColor="@color/edit"
                             android:textSize="15sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -166,7 +179,7 @@ Buy your Dream one!"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="5dp"
-                        android:hint="Business Email"
+                        android:hint="@string/email_address"
                         android:textColorHint="#31322D"
                         app:hintTextColor="#31322D"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -181,7 +194,8 @@ Buy your Dream one!"
                             android:background="@null"
                             android:fontFamily="@font/mulish_regular"
                             android:singleLine="true"
-                            android:textColor="#8F9187"
+                            android:text="@={motorVM.email}"
+                            android:textColor="@color/edit"
                             android:textSize="15sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -204,7 +218,7 @@ Buy your Dream one!"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
-                        android:src="@drawable/ic_email"
+                        android:src="@drawable/ic_smartphone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -215,7 +229,7 @@ Buy your Dream one!"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="5dp"
-                        android:hint="Email"
+                        android:hint="@string/phone"
                         android:textColorHint="#31322D"
                         app:hintTextColor="#31322D"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -230,6 +244,9 @@ Buy your Dream one!"
                             android:background="@null"
                             android:fontFamily="@font/mulish_regular"
                             android:singleLine="true"
+                            android:maxLength="10"
+                            android:inputType="phone"
+                            android:text="@={motorVM.phoneNumber}"
                             android:textColor="#8F9187"
                             android:textSize="15sp" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -242,10 +259,11 @@ Buy your Dream one!"
                     android:layout_height="136dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="15dp"
+                    android:visibility="gone"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/rectangle"
                     android:elevation="5dp"
-                    app:layout_constraintTop_toBottomOf="@+id/cl_business_email"
+                    app:layout_constraintTop_toBottomOf="@+id/cl_business_phone"
                     tools:ignore="MissingConstraints">
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -254,7 +272,7 @@ Buy your Dream one!"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
                         android:layout_marginTop="15dp"
-                        android:text="Business Registration Document"
+                        android:hint="@string/business_registration"
                         android:textColor="#827D7C"
                         android:textSize="13sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -290,7 +308,7 @@ Buy your Dream one!"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/mulish_regular"
-                            android:text="Upload File"
+                            android:text="@string/upload_file"
                             android:textColor="#00B99F"
                             android:textSize="12sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -329,6 +347,7 @@ Buy your Dream one!"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/cl_upload" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_abn"
                     android:layout_width="match_parent"
@@ -346,7 +365,7 @@ Buy your Dream one!"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
-                        android:src="@drawable/ic_email"
+                        android:src="@drawable/ic_address"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -357,7 +376,7 @@ Buy your Dream one!"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="5dp"
-                        android:hint="ABN"
+                        android:hint="@string/address"
                         android:textColorHint="#31322D"
                         app:hintTextColor="#31322D"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -372,11 +391,13 @@ Buy your Dream one!"
                             android:background="@null"
                             android:fontFamily="@font/mulish_regular"
                             android:singleLine="true"
-                            android:textColor="#8F9187"
+                            android:text="@={motorVM.address}"
+                            android:textColor="@color/edit"
                             android:textSize="15sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_state"
                     android:layout_width="match_parent"
@@ -394,7 +415,7 @@ Buy your Dream one!"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
-                        android:src="@drawable/ic_email"
+                        android:src="@drawable/ic_location"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -407,14 +428,16 @@ Buy your Dream one!"
                         android:layout_marginEnd="5dp"
                         android:textColorHint="#31322D"
                         app:hintTextColor="#31322D"
-                        android:entries="@array/state"
+                        android:entries="@{motorVM.stateList}"
+                        android:onItemSelected="@{(parent,view,pos,id)-> motorVM.onSelectSectionItem(parent,view,pos,id)}"
                         android:prompt="@string/select_state"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/img_state"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_postcode"
                     android:layout_width="match_parent"
@@ -443,7 +466,7 @@ Buy your Dream one!"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="5dp"
-                        android:hint="Post Code"
+                        android:hint="@string/post_code"
                         android:textColorHint="#31322D"
                         app:hintTextColor="#31322D"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -458,11 +481,15 @@ Buy your Dream one!"
                             android:background="@null"
                             android:fontFamily="@font/mulish_regular"
                             android:singleLine="true"
-                            android:textColor="#8F9187"
+                            android:maxLength="10"
+                            android:inputType="phone"
+                            android:text="@={motorVM.postCode}"
+                            android:textColor="@color/edit"
                             android:textSize="15sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_password"
                     android:layout_width="match_parent"
@@ -491,7 +518,7 @@ Buy your Dream one!"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="10dp"
-                        android:hint="Set Password"
+                        android:hint="@string/set_password"
                         android:textColorHint="#31322D"
                         app:hintTextColor="#31322D"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -509,29 +536,33 @@ Buy your Dream one!"
                             android:fontFamily="@font/mulish_regular"
                             android:inputType="textPassword"
                             android:singleLine="true"
+                            android:text="@={motorVM.setPassword}"
                             android:textColor="#8F9187"
                             android:textSize="15sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
-                    app:layout_constraintTop_toBottomOf="@+id/cl_password"/>
+                    app:layout_constraintTop_toBottomOf="@+id/cl_password" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
+
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/login_btn"
+            android:id="@+id/continue_btn"
             android:layout_width="0dp"
             android:layout_height="46dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/rectangle_blue"
             android:elevation="5dp"
-            android:text="Login"
+            android:text="@string/continuee"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
+            android:onClick="@{(v)-> motorVM.onClickAction(v)}"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/welcome_tv"
@@ -544,13 +575,13 @@ Buy your Dream one!"
             android:layout_marginTop="30dp"
             android:fontFamily="@font/mulish_regular"
             android:singleLine="true"
-            android:text="Or Login With"
+            android:text="@string/login_with"
             android:textAlignment="textStart"
-            android:textColor="#7D7E76"
+            android:textColor="@color/forgot"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_btn" />
+            app:layout_constraintTop_toBottomOf="@+id/continue_btn" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_google"
@@ -585,9 +616,9 @@ Buy your Dream one!"
             android:layout_marginTop="50dp"
             android:fontFamily="@font/mulish_regular"
             android:singleLine="true"
-            android:text="Don’t have an Account?"
+            android:text="@string/have_account"
             android:textAlignment="textStart"
-            android:textColor="#31322D"
+            android:textColor="@color/compare_gray"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/gl_center"
@@ -601,11 +632,12 @@ Buy your Dream one!"
             android:layout_marginTop="50dp"
             android:fontFamily="@font/mulish_regular"
             android:singleLine="true"
-            android:text="Login Now"
+            android:text="@string/login_now"
             android:textAlignment="textStart"
-            android:textColor="#00B99F"
+            android:textColor="@color/reset"
             android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@+id/gl_center"
             app:layout_constraintTop_toBottomOf="@+id/btn_google" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

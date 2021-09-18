@@ -10,7 +10,7 @@ import androidx.databinding.ViewDataBinding
 class BaseRecyclerViewAdapter<T, V : ViewDataBinding>   (@LayoutRes
                                                          private val layoutResourceId: Int,
                                                          private val bindVariableId: Int,
-                                                         private val items: ArrayList<T>,
+                                                         private val items: MutableList<T>,
                                                          private var dataVariables: Map<Int,Any>?,
                                                          private val onDataBindCallback: OnDataBindCallback<V>
 ) : androidx.recyclerview.widget.RecyclerView.Adapter<BaseViewHolder<V>>()  {
@@ -20,6 +20,11 @@ class BaseRecyclerViewAdapter<T, V : ViewDataBinding>   (@LayoutRes
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<V>, position: Int) {
+//        if(dataVariables != null) {
+//            for (data in dataVariables!!.entries) {
+//                holder.viewDataBinding.setVariable(data.key, data.value)
+//            }
+//        }
         holder.viewDataBinding.setVariable(bindVariableId, getItem(position))
         holder.viewDataBinding.executePendingBindings()
     }
@@ -33,7 +38,6 @@ class BaseRecyclerViewAdapter<T, V : ViewDataBinding>   (@LayoutRes
     }
     fun addDataSet(data:List<T>){
         items.addAll(data)
-        notifyDataSetChanged()
     }
 
     fun getItems():List<T>{
@@ -42,7 +46,6 @@ class BaseRecyclerViewAdapter<T, V : ViewDataBinding>   (@LayoutRes
 
     fun cleatDataSet(){
         items.clear()
-        notifyDataSetChanged()
     }
 
 

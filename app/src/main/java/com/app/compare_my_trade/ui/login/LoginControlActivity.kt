@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_login_control.*
 import org.koin.android.ext.android.inject
 
 class LoginControlActivity : BaseActivity<ActivityLoginControlBinding, MotorViewModel>() {
-    private  val movieViewModel: MotorViewModel by inject()
+    private  val motorViewModel: MotorViewModel by inject()
     private lateinit var appBarConfiguration: AppBarConfiguration
     override fun getBindingVariable(): Int {
         return BR.motorVM
@@ -26,7 +26,7 @@ class LoginControlActivity : BaseActivity<ActivityLoginControlBinding, MotorView
     }
 
     override fun getViewModel(): MotorViewModel {
-        return movieViewModel
+        return motorViewModel
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +35,7 @@ class LoginControlActivity : BaseActivity<ActivityLoginControlBinding, MotorView
         val navController = findNavController(R.id.nav_host_fragment_content_login_screen)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
     }
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_login_screen)

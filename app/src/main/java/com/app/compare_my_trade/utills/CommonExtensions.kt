@@ -10,3 +10,5 @@ fun Context.toast(message: CharSequence) =
 fun View.ShowSnackBar(message: String) {
     Snackbar.make(this, message, Snackbar.LENGTH_LONG).show()
 }
+
+

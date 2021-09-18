@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
-import com.app.compare_my_trade.BR
 import com.app.compare_my_trade.R
+import com.app.compare_my_trade.BR
 import com.app.compare_my_trade.databinding.ActivitySplashBinding
 import com.app.compare_my_trade.ui.MotorViewModel
 import com.app.compare_my_trade.ui.base.BaseActivity
@@ -14,8 +14,8 @@ import com.app.compare_my_trade.ui.base.BaseNavigator
 import com.app.compare_my_trade.ui.login.LoginControlActivity
 import com.github.ybq.android.spinkit.sprite.Sprite
 import com.github.ybq.android.spinkit.style.Circle
-import com.github.ybq.android.spinkit.style.DoubleBounce
 import kotlinx.android.synthetic.main.activity_splash.*
+import kotlinx.android.synthetic.main.prograssbar.*
 import org.koin.android.ext.android.inject
 
 
@@ -45,8 +45,7 @@ class Splash : BaseActivity<ActivitySplashBinding, MotorViewModel>(), BaseNaviga
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val doubleBounce: Sprite = Circle()
-        spin_kit.setIndeterminateDrawable(doubleBounce)
+        spin_kit.visibility=View.VISIBLE
         Handler(Looper.getMainLooper()).postDelayed({
             goTo(LoginControlActivity::class.java,null)
         }, 2000)
