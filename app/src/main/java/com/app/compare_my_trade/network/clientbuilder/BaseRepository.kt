@@ -2,6 +2,7 @@ package com.app.compare_my_trade.network.clientbuilder
 
 import androidx.lifecycle.MutableLiveData
 import com.app.compare_my_trade.network.model.BaseResponse
+import com.app.compare_my_trade.network.model.Errors
 import com.app.compare_my_trade.network.model.Resource
 import com.app.compare_my_trade.utills.Singleton
 import com.app.compare_my_trade.utills.Singleton.StatusCode
@@ -40,7 +41,7 @@ open class BaseRepository{
         }
     }
 
-    fun <T> getDefaultCallback(responseData: MutableLiveData<Resource<T>>): Callback<T> {
+    fun <T> getLoginCallback(responseData: MutableLiveData<Resource<T>>): Callback<T> {
         return object : Callback<T> {
             override fun onFailure(call: Call<T>, t: Throwable) {
                 val msg = if (t is IOException) noNetworkMsg else t.message!!
@@ -51,7 +52,7 @@ open class BaseRepository{
                 if (response.isSuccessful && response.body() != null) {
                     responseData.value = Resource.success(response.body()!!)
                 } else if (response.errorBody() != null) {
-                    val errorResponse = getErrorResponse<T>(response.errorBody()!!)
+                    val errorResponse = getLoginErrorResponse<T>(response.errorBody()!!)
                     responseData.value = Resource.error(errorResponse.message, errorResponse.data)
                 }
 
@@ -59,19 +60,37 @@ open class BaseRepository{
 
         }
     }
-
-    fun <T> getErrorResponse(responseBody: ResponseBody): BaseResponse<T> {
+    fun <T> getLoginErrorResponse(responseBody: ResponseBody): BaseResponse<T> {
         var truckErrorResponse: BaseResponse<T>
         try {
             val jObjError = JSONObject(responseBody.string())
+            val listPathObject = jObjError.getJSONObject("errors")
+            val iter = listPathObject.keys() //This should be the iterator you want.
+            val key = iter.next()
+            val error=listPathObject.getJSONArray(key)
             truckErrorResponse = BaseResponse(
-                success = jObjError.getBoolean("success"),
-                // message = Errors(jObjError.getJSONObject("errors").getString("message")),
+                message =error[0].toString(),
+                data = null,
+                success = true
+            )
+        } catch (e: JSONException) {
+            truckErrorResponse = BaseResponse(
+                success = false,
+                data = null,
+                message = "unable to get the response")
+        }
+        return truckErrorResponse
+    }
+    fun <T> getErrorResponse(responseBody: ResponseBody): BaseResponse<T> {
+        val truckErrorResponse: BaseResponse<T> = try {
+            val jObjError = JSONObject(responseBody.string())
+            BaseResponse(
+                success = true,
                 message = jObjError.getString("message"),
                 data = null
             )
         } catch (e: JSONException) {
-            truckErrorResponse = BaseResponse(
+            BaseResponse(
                 success = false,
                 message = "unable to get the response",
                 data = null)

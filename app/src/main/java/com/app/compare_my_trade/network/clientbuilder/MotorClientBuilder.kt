@@ -2,6 +2,7 @@ package com.app.compare_my_trade.network.clientbuilder
 
 import com.app.compare_my_trade.BuildConfig
 import com.app.compare_my_trade.data.local.ISharedPreferenceService
+import com.app.compare_my_trade.data.local.SharedPreferenceImp
 import com.google.gson.GsonBuilder
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.KoinComponent
@@ -11,14 +12,14 @@ import java.util.concurrent.TimeUnit
 import okhttp3.*
 
 
-class MotorClientBuilder(private val interceptor: Interceptor, private val sharedPreferences: ISharedPreferenceService) : KoinComponent,IMotorClientBuilder {
+class MotorClientBuilder(private val interceptor: ApiInterceptor, private val sharedPreferences: SharedPreferenceImp) : KoinComponent,IMotorClientBuilder {
     override fun getClient() = createClientAuth()
 
     override fun getBuilder() = builder
 
     override fun getRetrofit()= retrofit
 
-    private val API_BASE_URL = "https://api.themoviedb.org/"
+    private val API_BASE_URL = "http://motor.yenjoy.in/"
     private val CONNECT_TIMEOUT = 15
     private val READ_TIMEOUT = 60
     private val WRITE_TIMEOUT = 60

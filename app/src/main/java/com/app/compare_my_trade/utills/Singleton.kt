@@ -21,6 +21,7 @@ object Singleton {
     var mImdb:String=""
     var BaseImageUrl="https://image.tmdb.org/t/p/w185/"
     var connectionCheck:Boolean=false
+    var phoneRegex: String ="^[+]?[0-9]{10,13}\$"
 
     @BindingAdapter("imageUrls")
     @JvmStatic
@@ -67,6 +68,13 @@ object Singleton {
     }
 
 
+    fun isValidPhoneNumber(target: CharSequence?): Boolean {
+        return if (target == null || target.length < 9 || target.length > 13) {
+            false
+        } else {
+            Patterns.PHONE.matcher(target).matches()
+        }
+    }
 
 
 }

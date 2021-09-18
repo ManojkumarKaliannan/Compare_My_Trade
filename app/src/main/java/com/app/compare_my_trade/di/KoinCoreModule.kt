@@ -15,12 +15,13 @@ import org.koin.experimental.builder.single
 class KoinCoreModule {
     val koinCoreModule = module {
         single<SharedPreferenceImp>()
+        single<ApiInterceptor>()
+        single{MotorClientBuilder(get(),get())}
+        single<AllMotorAPIRepo>()
+        single<BeforeLoginRepoList>()
+
         viewModel<MotorViewModel>()
         viewModel<HomeViewModel>()
         viewModel<MoreOptionsViewModel>()
-        single<ApiInterceptor>()
-        single<MotorClientBuilder>()
-        single<AllMotorAPIRepo>()
-        single<BeforeLoginRepoList>()
 }
 }

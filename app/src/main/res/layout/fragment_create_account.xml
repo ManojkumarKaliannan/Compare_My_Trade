@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
@@ -78,7 +79,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="5dp"
-                        android:hint="@string/full_name"
+                        android:hint="@string/first_name"
                         android:textColorHint="@color/compare_gray"
                         app:hintTextColor="@color/edit"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -91,6 +92,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
                             android:background="@null"
+                            android:text="@={motorVM.firstName}"
                             android:fontFamily="@font/mulish_regular"
                             android:singleLine="true"
                             android:textColor="@color/edit"
@@ -116,7 +118,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
-                        android:src="@drawable/ic_suitcase"
+                        android:src="@drawable/ic_user"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -127,7 +129,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="5dp"
-                        android:hint="@string/business_name"
+                        android:hint="@string/last_name"
                         android:textColorHint="@color/compare_gray"
                         app:hintTextColor="@color/edit"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -140,6 +142,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
                             android:background="@null"
+                            android:text="@={motorVM.lastName}"
                             android:fontFamily="@font/mulish_regular"
                             android:singleLine="true"
                             android:textColor="@color/edit"
@@ -176,7 +179,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="5dp"
-                        android:hint="@string/business_email"
+                        android:hint="@string/email_address"
                         android:textColorHint="#31322D"
                         app:hintTextColor="#31322D"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -191,6 +194,7 @@
                             android:background="@null"
                             android:fontFamily="@font/mulish_regular"
                             android:singleLine="true"
+                            android:text="@={motorVM.email}"
                             android:textColor="@color/edit"
                             android:textSize="15sp" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -225,7 +229,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="5dp"
-                        android:hint="@string/business_phone"
+                        android:hint="@string/phone"
                         android:textColorHint="#31322D"
                         app:hintTextColor="#31322D"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -240,6 +244,9 @@
                             android:background="@null"
                             android:fontFamily="@font/mulish_regular"
                             android:singleLine="true"
+                            android:maxLength="10"
+                            android:inputType="phone"
+                            android:text="@={motorVM.phoneNumber}"
                             android:textColor="#8F9187"
                             android:textSize="15sp" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -252,6 +259,7 @@
                     android:layout_height="136dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="15dp"
+                    android:visibility="gone"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/rectangle"
                     android:elevation="5dp"
@@ -357,7 +365,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
-                        android:src="@drawable/ic_email"
+                        android:src="@drawable/ic_address"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -368,7 +376,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="5dp"
-                        android:hint="@string/abn"
+                        android:hint="@string/address"
                         android:textColorHint="#31322D"
                         app:hintTextColor="#31322D"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -383,6 +391,7 @@
                             android:background="@null"
                             android:fontFamily="@font/mulish_regular"
                             android:singleLine="true"
+                            android:text="@={motorVM.address}"
                             android:textColor="@color/edit"
                             android:textSize="15sp" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -406,7 +415,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
-                        android:src="@drawable/ic_email"
+                        android:src="@drawable/ic_location"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -419,7 +428,8 @@
                         android:layout_marginEnd="5dp"
                         android:textColorHint="#31322D"
                         app:hintTextColor="#31322D"
-                        android:entries="@array/state"
+                        android:entries="@{motorVM.stateList}"
+                        android:onItemSelected="@{(parent,view,pos,id)-> motorVM.onSelectSectionItem(parent,view,pos,id)}"
                         android:prompt="@string/select_state"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -471,6 +481,9 @@
                             android:background="@null"
                             android:fontFamily="@font/mulish_regular"
                             android:singleLine="true"
+                            android:maxLength="10"
+                            android:inputType="phone"
+                            android:text="@={motorVM.postCode}"
                             android:textColor="@color/edit"
                             android:textSize="15sp" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -523,6 +536,7 @@
                             android:fontFamily="@font/mulish_regular"
                             android:inputType="textPassword"
                             android:singleLine="true"
+                            android:text="@={motorVM.setPassword}"
                             android:textColor="#8F9187"
                             android:textSize="15sp" />
                     </com.google.android.material.textfield.TextInputLayout>

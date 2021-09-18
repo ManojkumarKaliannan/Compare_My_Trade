@@ -2,19 +2,16 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data>
         <variable
             name="motorVM"
             type="com.app.compare_my_trade.ui.MotorViewModel" />
         <import type="android.view.View" />
     </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.login.LoginControlActivity">
-
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -290,5 +287,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/btn_google" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
+        <include layout="@layout/prograssbar"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

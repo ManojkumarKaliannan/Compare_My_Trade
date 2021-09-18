@@ -86,7 +86,6 @@ abstract class BaseFragment<T : ViewDataBinding, out V : BaseViewModel<*>> : Fra
         viewDataBinding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         mRootView = viewDataBinding!!.root
         mRootViewGrp = container
-//        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         return mRootView
     }
 

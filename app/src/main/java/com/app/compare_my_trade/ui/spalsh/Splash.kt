@@ -15,6 +15,7 @@ import com.app.compare_my_trade.ui.login.LoginControlActivity
 import com.github.ybq.android.spinkit.sprite.Sprite
 import com.github.ybq.android.spinkit.style.Circle
 import kotlinx.android.synthetic.main.activity_splash.*
+import kotlinx.android.synthetic.main.prograssbar.*
 import org.koin.android.ext.android.inject
 
 
@@ -44,8 +45,7 @@ class Splash : BaseActivity<ActivitySplashBinding, MotorViewModel>(), BaseNaviga
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val doubleBounce: Sprite = Circle()
-        spin_kit.setIndeterminateDrawable(doubleBounce)
+        spin_kit.visibility=View.VISIBLE
         Handler(Looper.getMainLooper()).postDelayed({
             goTo(LoginControlActivity::class.java,null)
         }, 2000)

@@ -57,8 +57,13 @@
     <string name="login_now">Login Now</string>
 
     <string name="full_name">Full Name</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="address">Address Line</string>
     <string name="business_name">Business Name</string>
     <string name="business_email">Business Email</string>
+    <string name="phone">Phone</string>
     <string name="business_phone">Business Phone</string>
     <string name="business_registration">Business Registration Document</string>
     <string name="upload_file">Upload File</string>
