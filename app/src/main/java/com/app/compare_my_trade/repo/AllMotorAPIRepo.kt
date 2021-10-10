@@ -8,4 +8,5 @@ class AllMotorAPIRepo(private val motorClientBuilder: MotorClientBuilder) {
     fun getBeforeLoginControllerRepo():IBeforeLogin{
         return motorClientBuilder.getRetrofit().create(IBeforeLogin::class.java)
     }
+
 }

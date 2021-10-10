@@ -41,6 +41,25 @@ open class BaseRepository{
         }
     }
 
+    fun <T> getListCallbacks(responseData: MutableLiveData<List<T>>): Callback<List<T>> {
+        return object : Callback<List<T>> {
+
+            override fun onResponse(call: Call<List<T>>, response: Response<List<T>>) {
+                if (response.isSuccessful && response.body() != null) {
+                    responseData.value = response.body()
+                } else {
+                    responseData.value = null
+                }
+            }
+
+            override fun onFailure(call: Call<List<T>>, t: Throwable) {
+                responseData.value = null
+            }
+
+        }
+    }
+
+
     fun <T> getLoginCallback(responseData: MutableLiveData<Resource<T>>): Callback<T> {
         return object : Callback<T> {
             override fun onFailure(call: Call<T>, t: Throwable) {

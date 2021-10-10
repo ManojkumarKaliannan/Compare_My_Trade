@@ -101,18 +101,15 @@ class LoginFragment : BaseFragment<FragmentLoginBinding,MotorViewModel>(), BaseN
                      viewModel.isLoading.value=true
                      viewModel.postLoginResponse()
                  }
-
             }
 
         }
-        binding.createTv.setOnClickListener {
-            findNavController().navigate(R.id.action_loginfragment_to_createAccountFragment)
-        }
+
     }
 
     override fun goTo(clazz: Class<*>, mExtras: Bundle?) {
         val intent = Intent(activity, clazz)
         startActivity(intent)
-
+        activity?.finish()
     }
 }

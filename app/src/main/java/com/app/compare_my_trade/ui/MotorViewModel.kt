@@ -8,10 +8,10 @@ import com.app.compare_my_trade.ui.base.BaseViewModel
 
 import org.koin.core.KoinComponent
 import androidx.databinding.ObservableField
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.app.compare_my_trade.data.model.beforelogin.CreateAccountResponse
-import com.app.compare_my_trade.data.model.beforelogin.LoginResponse
+import com.app.compare_my_trade.data.model.beforelogin.login.LoginResponse
+import com.app.compare_my_trade.data.model.beforelogin.register.CreateAccountResponse
+import com.app.compare_my_trade.data.model.beforelogin.state.StateListResponseItem
 import com.app.compare_my_trade.network.model.BaseResponse
 import com.app.compare_my_trade.network.model.Resource
 import com.app.compare_my_trade.repo.beforelogin.BeforeLoginRepoList
@@ -22,7 +22,7 @@ class MotorViewModel(application: Application) : BaseViewModel<BaseNavigator>(ap
     KoinComponent
 {
     var username = ObservableField("mano@gmail.com")
-    var password = ObservableField("Kshruthi7!")
+    var password = ObservableField("K"+"$"+"hruthi71")
 
     var firstName=ObservableField<String>()
     var lastName=ObservableField<String>()
@@ -32,11 +32,14 @@ class MotorViewModel(application: Application) : BaseViewModel<BaseNavigator>(ap
     var postCode=ObservableField<String>()
     var setPassword=ObservableField<String>()
     var state=ObservableField<String>()
+    var countryID=ObservableField<String>()
     private val beforeLoginRepo: BeforeLoginRepoList by inject()
      val isLoading = MutableLiveData<Boolean>()
     var loginResponse = MutableLiveData<Resource<BaseResponse<LoginResponse>>>()
     var stateList = ObservableField<List<String>>()
+    var stateArrayValue=ArrayList<StateListResponseItem>()
     var createAccountApiResponse=MutableLiveData<Resource<BaseResponse<CreateAccountResponse>>>()
+    var stateListResponse=MutableLiveData<List<StateListResponseItem>>()
 
     fun onClickAction(view: View?) {
         getNavigator().onClickView(view)
@@ -54,25 +57,22 @@ class MotorViewModel(application: Application) : BaseViewModel<BaseNavigator>(ap
              password= setPassword.get()!!,
              addressLine = address.get()!!,
              postalCode = postCode.get()!!,
-             locationId = "2",
+             locationId = countryID.get()!!,
              phoneNumber=phoneNumber.get()!!,
              response = createAccountApiResponse
          )
     }
 
 
-    fun setStateValues(){
-        var list=  ArrayList<String>()
-        list.clear()
-        list.add("State")
-        list.add("TamilNadu")
-        list.add("Karnataka")
-        stateList.set(list)
+    fun getStateListResponse(){
+        beforeLoginRepo.getStateListResponse(stateListResponse)
     }
 
+
     fun onSelectSectionItem(parent: AdapterView<*>, view: View, pos: Int, id: Long) {
-        stateList.get()?.let {
-            state.set(it[pos])
+        stateArrayValue.let {
+            state.set(it[pos].name)
+            countryID.set(it[pos].country_id)
         }
 
     }
